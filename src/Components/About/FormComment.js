@@ -1,16 +1,8 @@
 import React, {Component} from 'react';
 import {Container, Row, Col, Form, Button} from 'bootstrap-4-react';
 import './About.scss';
+import Article from './Comment';
 
-const Article = ({ title, text, time }) => (
-    <div className="form-comment__item">
-        <div className="form-comment__item_title">
-            <h4>{title || "No name"}</h4>
-            <div className="form-comment__item_title_time">{ time }</div>
-        </div>
-        <p>{text || "No description"}</p>
-    </div>
-);
 
 class FormComment extends Component {
     static emptyArticle = {
@@ -33,7 +25,7 @@ class FormComment extends Component {
                 ...articles,
                 {
                     ...newArticle,
-                    id: Math.random(),
+                    id: +new Date(),
                     time: new Date().toLocaleString(),
                 }
             ]
